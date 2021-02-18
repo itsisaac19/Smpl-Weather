@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smpl Weather</title>
+
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="icon" href="CSS/icons/Smplicon.ico">
+
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='CSS/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <div class="coverpage">
+        <div class="innerwrap">
+            <div class="topdetails">
+                <div id="clientcity" class="clientcity">Moscow</div>
+                <!--CITY OPTIONS DROPDOWN-->
+                <div class="cityoptions">
+                    <div class="addcity">
+                        <span>Add City</span>
+                        <img src="CSS/icons/ic_add_24px.svg" alt="">
+                    </div>
+                    <div class="changecity"> 
+                        <span>Change City</span> 
+                        <img src="CSS/icons/icons8-synchronize.svg" alt="">
+                    </div>
+                    <div class="addcitylocation"> 
+                        <span>Add Current <br> Location</span>  
+                        <img src="CSS/icons/ic_place_24px.svg" alt="">
+                    </div>
+
+                    <div class="confirmoption">
+                        <div id="denyoption">
+                            <img src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/>
+                        </div>
+                        <div id="yesoption">
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/checkmark--v1.png"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clientdate">18.01.2021</div>
+                <div class="monthview">For a month</div>
+            </div>
+            <div class="maincontent">
+                <div class="propertytempsplit">
+                    <div class="largetempdisplay">- 4°</div>
+                    <div class="clientproperties">
+                        <div class="clienthour clientprop">11:00</div>
+                        <div class="clientday clientprop">Saturday</div>
+                        <div class="clientweatherdesc clientprop">Cloudy</div>
+                    </div>
+                </div>
+                
+                <div class="hourdisplay">
+                    <div class="hourcase">
+                        <div class="hour">11:00</div>
+                        <div class="hourtemp">- 4°</div>
+                    </div>
+                    <div class="hourcase">
+                        <div class="hour">11:00</div>
+                        <div class="hourtemp">- 4°</div>
+                    </div>
+                    <div class="hourcase">
+                        <div class="hour">11:00</div>
+                        <div class="hourtemp">- 4°</div>
+                    </div>
+                    <div class="hourcase">
+                        <div class="hour">11:00</div>
+                        <div class="hourtemp">- 4°</div>
+                    </div>
+                    <div class="hourcase">
+                        <div class="hour">11:00</div>
+                        <div class="hourtemp">- 4°</div>
+                    </div>
+                    <div class="hourcase">
+                        <div class="hour">11:00</div>
+                        <div class="hourtemp">- 4°</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomcontent">
+                <div class="weekdisplay">
+                    <div class="spacerline"></div>
+
+                    <div class="weekdaytempwrap todaydayoutline">
+                        <div class="weekday">Sat</div>
+                        <div class="weekdaytemp">-4°</div>
+                    </div>
+                    <div class="weekdaytempwrap">
+                        <div class="weekday">Sun</div>
+                        <div class="weekdaytemp">-4°</div>
+                    </div>
+                    <div class="weekdaytempwrap">
+                        <div class="weekday">Mon</div>
+                        <div class="weekdaytemp">-4°</div>
+                    </div>
+                    <div class="weekdaytempwrap">
+                        <div class="weekday">Tue</div>
+                        <div class="weekdaytemp">-4°</div>
+                    </div>
+                    <div class="weekdaytempwrap">
+                        <div class="weekday">Wed</div>
+                        <div class="weekdaytemp">-4°</div>
+                    </div>
+                    <div class="weekdaytempwrap">
+                        <div class="weekday">Thu</div>
+                        <div class="weekdaytemp">-4°</div>
+                    </div>
+                    <div class="weekdaytempwrap">
+                        <div class="weekday">Fri</div>
+                        <div class="weekdaytemp">-4°</div>
+                    </div>
+
+                    <div class="spacerline"></div>
+                </div>
+            </div>
+
+            <div class="pageloader">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="splitpage"></div>
+    </div>
+
+    <div id='map'></div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+<script src="JS/weather.js"></script>
+<script src="JS/clientproperties.js"></script>
+
+</html>
