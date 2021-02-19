@@ -47,6 +47,32 @@ function hourlyweather () {
     })
 }
 
+function weatherdescs () {
+    var client = JSON.parse(localStorage.getItem('clientprop'))
+    var lon = localStorage.getItem('lon')
+    var lat = localStorage.getItem('lat')
+
+    fetch('https://api.weather.gov/points/'+ lat +',' + lon)
+	.then(response => response.json())
+    .then(data => {
+        fetch(data.properties.forecast)
+        .then(response => response.json())
+        .then(data => {
+            document.querySelector('.currentTextDesc').innerHTML = data['properties']['periods'][0]['detailedForecast']
+        })
+    })
+}
+function showdesc () {
+    if (document.querySelector('.currentTextDesc').style.animation == '0.3s ease 0s 1 normal forwards running textdescshow') {
+        hidedesc();
+        return;
+    } else {
+    }
+    document.querySelector('.currentTextDesc').style.animation = 'textdescshow 0.3s ease 0s forwards'
+}
+function hidedesc () {
+    document.querySelector('.currentTextDesc').style.animation = 'textdeschide 0.2s ease 0s forwards'
+}
 
 function getweathercode(code) {
     if (code == 1000) {return 'clear'}
@@ -82,4 +108,5 @@ function callAll () {
     hourlyweather()
     dailyweather()
     currentweather()
+    weatherdescs()
 }

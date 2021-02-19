@@ -33,7 +33,7 @@ body {
 /* TOP DETAILS */
 .topdetails {
     user-select: none;
-    z-index: 3;
+    z-index: 1;
     position: relative;
    
     inset: 0;
@@ -53,23 +53,31 @@ body {
 
 /* CITY OPTIONS DROPDOWN */
 @keyframes cityoptionspop {
-    from {
+    0% {
         opacity: 0;
         transform: scale(0.8, 0.8);
     }
-    to {
+    100% {
+        top: 60px;
         opacity: 1;
         transform: scale(1, 1);
     }
 }
 @keyframes cityoptionshide {
-    from {
+    0% {
         opacity: 1;
         transform: scale(1, 1);
     }
-    to {
+    20% {
+        top: 70px;
+    }
+    45% {
+        opacity: 0;
+    }
+    100% {
         opacity: 0;
         transform: scale(0.8, 0.8);
+        top: -170px;
     }
 }
 .cityoptions {
@@ -141,6 +149,51 @@ body {
     grid-template-rows: 1fr;
 }
 
+.loaddots {
+    display: none;
+    position: absolute;
+    top: 95px;
+    left: 226%;
+    width: 100px;
+    height: 50px;
+    z-index: 100000;
+}
+.dot-typing {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #000000;
+    box-shadow: 9984px 0 0 0 #000000, 9999px 0 0 0 #000000, 10014px 0 0 0 #000000;
+    animation: dot-typing 1.5s infinite linear;
+  }
+  
+  @keyframes dot-typing {
+    0% {
+      box-shadow: 9984px 0 0 0 #000000, 9999px 0 0 0 #000000, 10014px 0 0 0 #000000;
+    }
+    16.667% {
+      box-shadow: 9984px -10px 0 0 #000000, 9999px 0 0 0 #000000, 10014px 0 0 0 #000000;
+    }
+    33.333% {
+      box-shadow: 9984px 0 0 0 #000000, 9999px 0 0 0 #000000, 10014px 0 0 0 #000000;
+    }
+    50% {
+      box-shadow: 9984px 0 0 0 #000000, 9999px -10px 0 0 #000000, 10014px 0 0 0 #000000;
+    }
+    66.667% {
+      box-shadow: 9984px 0 0 0 #000000, 9999px 0 0 0 #000000, 10014px 0 0 0 #000000;
+    }
+    83.333% {
+      box-shadow: 9984px 0 0 0 #000000, 9999px 0 0 0 #000000, 10014px -10px 0 0 #000000;
+    }
+    100% {
+      box-shadow: 9984px 0 0 0 #000000, 9999px 0 0 0 #000000, 10014px 0 0 0 #000000;
+    }
+  }
+
 .confirmoption {
     position: absolute;
     bottom: -100px; opacity: 0;
@@ -165,6 +218,7 @@ body {
     }
 }
 .confirmoption > div {
+    cursor: pointer;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -225,10 +279,40 @@ body {
     transform: scale(0.96, 1);
     font: bold normal 170px system-ui;
 }
+.currentTextDesc {
+    position: absolute;
+    left: 0;
+    top: 200px; opacity: 0;
+    max-width: 380px;
+    line-height: 28px;
+    width: 80%;
+    grid-area: temp;
+    /* margin: auto auto 110px 50px; */
+}
+@keyframes textdescshow {
+    from {
+        opacity: 0;
+        top: 200px;
+    }
+    to {
+        opacity: 1;
+        top: 170px;
+    }
+}
+@keyframes textdeschide {
+    from {
+        opacity: 1;
+        top: 170px;
+    }
+    to {
+        opacity: 0;
+        top: 200px;
+    }
+}
 .clientproperties {
+    position: relative;
     grid-area: prop;
     margin: auto 0;
-
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1.5fr 1fr;
@@ -246,6 +330,13 @@ body {
     margin: auto auto auto 0;
     font-size: 40px;
     font-weight: 600;
+}
+.texticon {
+    cursor: pointer;
+    position: absolute;
+    left: 180px;
+    top: 51%; transform: translateY(-50%);
+    width: 30px;
 }
 .clientweatherdesc {
     margin: auto auto 5px 0;
@@ -441,7 +532,11 @@ body {
         background-color: #69685e;
     }
     .addcity, .changecity {
+        color: #484848;
         border-bottom: #545454 solid 1px;
+    }
+    .clientcity::after {
+        color: #000000 !important;
     }
     .option:hover {
         background-color: #7e7d73 !important;
@@ -450,7 +545,5 @@ body {
         background-color: #69685e;
         box-shadow: 0px 0px 30px #00000011;
     }
-    .mapboxgl-map {
-        border: solid #616161 !important;
-    }
+
 }*/

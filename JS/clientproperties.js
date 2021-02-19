@@ -20,13 +20,13 @@ function getClientProperties () { // GET THE CLIENTS INFO
 
         if (location == true) { // If the client actually has a true location:
             var afterIndCIty = document.createElement('style');
-afterIndCIty.innerHTML = `
-.clientcity::after {
-    content: '  - Current Location';
-    color: #9c9c9c;
-}
-`
-document.body.appendChild(afterIndCIty)
+            afterIndCIty.innerHTML = `
+            .clientcity::after {
+                content: '  - Current Location';
+                color: #9c9c9c;
+            }
+            `
+        document.body.appendChild(afterIndCIty)
 
             if (localStorage.getItem('clientprop')) {
                 var prev = JSON.parse(localStorage.getItem('clientprop'))
@@ -208,6 +208,9 @@ function pageinit (client, citynum) {
             }
         })
 
+        document.getElementsByClassName('addcitylocation')[0].addEventListener('click', openmap)
+
+        document.getElementsByClassName('texticon')[0].addEventListener('click', showdesc)
     callAll()
 }
 
@@ -258,17 +261,46 @@ zoom: 9 // starting zoom
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
 
-document.getElementsByClassName('addcitylocation')[0].addEventListener('click', openmap)
-
 function openmap () {
-    document.querySelector('#map').style.animation = 'mappop 0.3s ease 0.2s 1 forwards'
-    document.getElementsByClassName('addcitylocation')[0].removeEventListener('click', openmap)
+    document.querySelector('.loaddots').style.top = null
+    document.querySelector('.loaddots').style.left = null
+    document.querySelector('.loaddots').style.width =  null
+    document.querySelector('.loaddots').style.textAlign = null
+    document.querySelector('.loaddots').style.padding =null
+    document.querySelector('.loaddots').style.background = null
 
+    document.querySelector('.loaddots').style.display = 'block'
+    document.querySelector('#map').style.animation = 'mappop 0.3s ease 0s 1 forwards'
+    document.getElementsByClassName('addcitylocation')[0].removeEventListener('click', openmap)
+    console.log('we')
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(createMarker);
+
+        navigator.geolocation.getCurrentPosition(createMarker, showError);
     } else {
         alert("Geolocation is not supported by this browser.")
     }
+}
+function showError(error) {
+    document.querySelector('.loaddots').style.top = '65px'
+    document.querySelector('.loaddots').style.left = '186%'
+    document.querySelector('.loaddots').style.width = '159px'
+    document.querySelector('.loaddots').style.textAlign = 'Center'
+    document.querySelector('.loaddots').style.padding = '20px 0px 20px 0px'
+    document.querySelector('.loaddots').style.background = 'white'
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+          document.querySelector('.loaddots').innerHTML = "User denied the request for Geolocation."
+          break;
+        case error.POSITION_UNAVAILABLE:
+            document.querySelector('.loaddots').innerHTML =  "Location information is unavailable."
+          break;
+        case error.TIMEOUT:
+            document.querySelector('.loaddots').innerHTML =  "The request to get user location timed out."
+          break;
+        case error.UNKNOWN_ERROR:
+            document.querySelector('.loaddots').innerHTML =  "An unknown error occurred."
+          break;
+      }
 }
 
 function createMarker (pos) {
@@ -283,6 +315,8 @@ function createMarker (pos) {
     document.querySelector('#map').style.opacity = '1'
     document.querySelector('#map').style.zIndex = '1000'
     document.querySelector('#map').style.transform = 'scale(1,1)'
+
+    document.querySelector('.loaddots').style.display = null
 
     document.querySelector('.confirmoption').style.animation = 'confirmoptionslideup 0.2s ease 0.1s 1 forwards'
     document.querySelector('#denyoption').addEventListener('click', closeoptions)

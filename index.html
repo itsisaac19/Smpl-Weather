@@ -34,6 +34,11 @@
                         <img src="CSS/icons/ic_place_24px.svg" alt="">
                     </div>
 
+                    <div id='map'></div>
+                    <div class="loaddots">
+                        <div class="dot-typing"></div>
+                    </div>
+
                     <div class="confirmoption">
                         <div id="denyoption">
                             <img src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/>
@@ -50,10 +55,21 @@
             <div class="maincontent">
                 <div class="propertytempsplit">
                     <div class="largetempdisplay">- 4°</div>
+
                     <div class="clientproperties">
                         <div class="clienthour clientprop">11:00</div>
                         <div class="clientday clientprop">Saturday</div>
                         <div class="clientweatherdesc clientprop">Cloudy</div>
+
+                        <svg class="texticon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 172 172" style=" fill:#000000;">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                <g fill="#000">
+                                    <path d="M6.88,13.76v6.88h158.24v-6.88zM6.88,48.16v6.88h110.08v-6.88zM6.88,82.56v6.88h158.24v-6.88zM6.88,116.96v6.88h110.08v-6.88zM6.88,151.36v6.88h158.24v-6.88z"></path>
+                                </g>
+                            </g>
+                        </svg>
+                        <div class="currentTextDesc"></div>
                     </div>
                 </div>
                 
@@ -131,8 +147,6 @@
 
         <div class="splitpage"></div>
     </div>
-
-    <div id='map'></div>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
