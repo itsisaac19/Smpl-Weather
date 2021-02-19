@@ -50,6 +50,7 @@ body {
     grid-area: city;
     margin: auto auto auto 10%;
 }
+
 /* CITY OPTIONS DROPDOWN */
 @keyframes cityoptionspop {
     from {
@@ -81,7 +82,7 @@ body {
 
     position: absolute;
     top: 60px;
-    left: 30px;
+    left: 10%;
 
     width: 170px;
     height: 140px;
@@ -96,23 +97,18 @@ body {
 }
 .cityoptions > div, .cityoptions * {
     transition: ease 0.2s;
-    cursor: pointer;
 }
 
 .cityoptions > div:hover:nth-child(1) {
-    border-radius: 14px 14px 0 0;
     background-color: #f3f2e8;
 }
 .cityoptions > div:hover:nth-child(2) {
-    border-radius: 0;
     background-color: #f3f2e8;
 }
 .cityoptions > div:hover:nth-child(3) {
-    border-radius: 0 0 14px 14px ;
     background-color: #f3f2e8;
 }
 .cityoptions > div > span {
-    color: #222222;
     margin: auto auto auto 15px;
 }
 .cityoptions > div > img {
@@ -120,18 +116,26 @@ body {
     width: 13px;
 }
 .addcity {
+    cursor: not-allowed;
+    color: #a7a7a7;
+    border-radius: 14px 14px 0 0;
     display: grid;
     grid-template-columns: 1fr 40px;
     grid-template-rows: 1fr;
     border-bottom: #dfdfdf solid 1px;
 }
 .changecity {
+    cursor: not-allowed;
+    color: #a7a7a7;
     display: grid;
     grid-template-columns: 1fr 40px;
     grid-template-rows: 1fr;
     border-bottom: #dfdfdf solid 1px;
 }
 .addcitylocation {
+    cursor: pointer;
+    color: #222222;
+    border-radius: 0 0 14px 14px ;
     display: grid;
     grid-template-columns: 1fr 40px;
     grid-template-rows: 1fr;
@@ -161,16 +165,19 @@ body {
     }
 }
 .confirmoption > div {
-    margin: auto; display: flex; justify-content: center; align-items: center;
-    width: 55%; height: 90%;
-
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    height: 75%;
     border-radius: 14px;
     box-shadow: 0px 0px 30px #00000012;
     background-color: #F8F7F0;
     transition: ease 0.2s;
 }
 .confirmoption img {
-    width: 30px;
+    width: 20px;
 }
 .confirmoption > div:active, .confirmoption img:active {
     transform: scale(0.9, 0.9);
@@ -411,3 +418,39 @@ body {
 
     z-index: -1;
 }
+
+/*
+@media (prefers-color-scheme: dark) {
+    .coverpage {
+        background: linear-gradient(90deg, rgb(84 83 75) 70%, rgb(88 88 81) 30%);
+    }
+    .propertytempsplit {
+        color: #000000;
+    }
+    .topdetails, .clientproperties, .weekday, .hour {
+        color: #212121;
+    }
+    .todaydayoutline{
+        border: 1px solid #232323;
+    }
+    .spacerline {
+        background-color: #232323;
+    }
+    .cityoptions {
+        box-shadow: rgb(60 60 59 / 55%) 0px 0px 30px;
+        background-color: #69685e;
+    }
+    .addcity, .changecity {
+        border-bottom: #545454 solid 1px;
+    }
+    .option:hover {
+        background-color: #7e7d73 !important;
+    }
+    .confirmoption > div {
+        background-color: #69685e;
+        box-shadow: 0px 0px 30px #00000011;
+    }
+    .mapboxgl-map {
+        border: solid #616161 !important;
+    }
+}*/

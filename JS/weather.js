@@ -8,7 +8,7 @@ function currentweather () {
     .then(data => {
         //console.log(data)
         var main =  data.data.timelines[0].intervals
-        document.querySelector('.largetempdisplay').innerHTML = main[1].values.temperature.toFixed(1) + '°'
+        document.querySelector('.largetempdisplay').innerHTML = main[1].values.temperature.toFixed(0) + '°' + ' F'
         document.querySelector('.clientweatherdesc').innerHTML = getweathercode(main[1].values.weatherCode) 
     })
 }

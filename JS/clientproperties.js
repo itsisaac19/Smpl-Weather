@@ -3,6 +3,7 @@ function getClientProperties () { // GET THE CLIENTS INFO
     if (localStorage.getItem('lat') && localStorage.getItem('lon')) { // IF THEIR COORDINATES ARE STORED
         console.log('location is saved')
         createClient(true); 
+        
     }  else {
         localStorage.setItem('lat', '40')
         localStorage.setItem('lon', '-90')
@@ -18,6 +19,14 @@ function getClientProperties () { // GET THE CLIENTS INFO
     
 
         if (location == true) { // If the client actually has a true location:
+            var afterIndCIty = document.createElement('style');
+afterIndCIty.innerHTML = `
+.clientcity::after {
+    content: '  - Current Location';
+    color: #9c9c9c;
+}
+`
+document.body.appendChild(afterIndCIty)
 
             if (localStorage.getItem('clientprop')) {
                 var prev = JSON.parse(localStorage.getItem('clientprop'))
@@ -219,7 +228,7 @@ function displayhours (twelve, ampm) {
         }
     }
 }
-displayhours();
+displayhours('true', 'true');
 
 function displayweekdays () {
     for (daynum = 0; daynum < 7; daynum++) {
@@ -230,11 +239,18 @@ function displayweekdays () {
 displayweekdays()
 
 // MAPBOX 
+var theme;
+var themeInd = window.getComputedStyle(document.querySelector('.largetempdisplay')).getPropertyValue('color')
+if (themeInd == 'rgb(0, 0, 0)') {
+    theme = 'mapbox://styles/itsisaac19/cklbsrlme1biv17nwa5di76r4'
+} else {
+    theme = 'mapbox://styles/itsisaac19/cklb2lft92h3317nxe8jvfdt1'
+}
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXRzaXNhYWMxOSIsImEiOiJja2xiMmpraTEwZDIyMndvMzE5cGd1eTlyIn0.V2gQnHEAqZEugJKp82pUaQ';
 var map = new mapboxgl.Map({
 container: 'map',
-style: 'mapbox://styles/itsisaac19/cklb2lft92h3317nxe8jvfdt1',
+style: theme,
 center: [-93.118,45.08],
 zoom: 9 // starting zoom
 });
@@ -288,3 +304,7 @@ function closeoptions () {
     document.querySelector('#map').style.zIndex = null
     document.querySelector('#map').style.transform = null
 }
+
+
+
+
