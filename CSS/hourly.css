@@ -1,0 +1,199 @@
+.coverpage {
+    min-height: 1430px !important;
+}
+
+.maincontent {
+    display: grid;
+    grid-template-columns: 65% 1fr;
+    grid-template-rows: 1fr;
+
+    grid-template-areas: 'day graph';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.graphdisplay {
+    grid-area: graph;
+    margin: 70px 0 0 30px;
+}
+.graphtext {
+    position: relative;
+    top: 10px;
+    opacity: 0;
+
+    transition:  0.3s ease;
+
+    grid-area: day;
+    font-size: 55px;
+    font-weight: 600;
+    color: #333333;
+}
+.graphswrap {
+    position: relative;
+    top: 10px;
+    opacity: 0;
+
+    transition: 0.3s ease;
+
+    margin-top: 35px;
+    height: 800px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 20px;
+}
+.graphswrap > div {
+    border-radius: 20px;
+    background-color: #F8F7F0;
+    box-shadow: 0px 0px 30px #0000000A;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 1fr;
+}
+.titlegraph {
+    margin: auto auto auto 25px;
+}
+.tempgraphdata, .precipgraphdata, .windgraphdata {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 40px;
+}
+.graphdisplaywrapper {
+    position: absolute;
+    top: 20px;
+    height: 100px;
+}
+.labelsgraph {
+    margin: auto;
+    width: calc(100% - 20px);
+    height: 40px;
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr;
+}
+.labelsgraph > div {
+    margin: 0 auto auto auto;
+}
+.daydisplay {
+    grid-area: day;
+
+    margin: 70px 0 0 4%;
+    height: 900px; max-width: 1130px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr;
+
+    grid-template-areas: 'top' 'hours';
+}
+.weekdaywrap {
+    grid-area: top;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'day switch';
+}
+.weekdaytext {
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    
+    transition:  0.3s ease;
+
+    grid-area: day;
+    font-size: 55px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.hourstable {
+    position: relative;
+    top: 10px;
+    opacity: 0;
+
+    transition: 0.3s ease;
+
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: #F8F7F0;
+    box-shadow: 0px 0px 30px #0000000A;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 1fr;
+}
+.toplabels {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1.3fr 2fr 1fr 1fr 1fr 1fr 1.3fr;
+
+    border-bottom: #dfdfdf solid 1px;
+}
+.toplabels >div:first-of-type {
+    margin: auto auto auto 30px;
+}
+.toplabels > div:nth-child(2) {
+    margin: auto auto auto 40px;
+}
+.toplabels > div  {
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+}
+.hourscontent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(12, 70px);
+}
+.hoursection {
+    display: grid; place-items: center;
+    grid-template-columns: 1.3fr 2fr 1fr 1fr 1fr 1fr 1.3fr;
+    grid-template-rows: 1fr;
+
+    border-bottom: #dfdfdf solid 1px;
+}
+.hoursection:last-of-type {
+    border-bottom: none;
+}
+.hourtime {
+    margin: auto auto auto 30px;
+    font: normal normal 300 20px SF Pro;
+}
+.hourweatherdesc {
+    margin: auto auto auto 40px;
+    font: normal normal 400 15px SF Pro;
+}
+.hourtemp {
+    color: #000000;
+    font: normal normal bold 15px SF Pro;
+}
+.hourfeelstemp {
+    color: #333333;
+    font: normal normal bold 15px SF Pro;
+}
+.hourwind {
+    color: #8AA7A6;
+    font: normal normal bold 15px SF Pro;
+}
+.hourprecip {
+    color: #5B727C;
+    font: normal normal bold 15px SF Pro;
+}
+.hourhumidity {
+    color: #ACA27B;
+    font: normal normal bold 15px SF Pro;
+}
+
+
+
+@media only screen and (max-width: 550px) {
+    .maincontent {
+        grid-template-areas: 'day' 'graph';
+        grid-template-rows: 1fr 1fr;
+    }
+    .user-settings {
+        bottom: -800px !important;
+    }
+}

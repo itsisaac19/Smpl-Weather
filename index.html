@@ -7,6 +7,8 @@
     <title>Smpl Weather</title>
 
     <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/global.css">
+    
     <link rel="icon" href="CSS/icons/Smplicon.ico">
 
 
@@ -17,7 +19,7 @@
 <body>
     <div class="coverpage">
         <div class="innerwrap">
-            <div class="topdetails">
+            <div class="topdetails global">
                 <div id="clientcity" class="clientcity">Moscow</div>
                 <!--CITY OPTIONS DROPDOWN-->
                     <div class="cityoptions">
@@ -59,7 +61,7 @@
 
 
                 <div class="clientdate">18.01.2021</div>
-                <div class="monthview">For a month</div>
+                <div class="dayview">For a day</div>
             </div>
             <div class="maincontent">
                 <div class="propertytempsplit">
@@ -153,16 +155,16 @@
                                 <span>Units</span>
 
                                 <div class="unitswrap">
-                                    <div class="unit unit-imperial">F°</div>
-                                    <div class="unit unit-metric">C°</div>
+                                    <div class="unit unit-imperial imperial">F°</div>
+                                    <div class="unit unit-metric metric">C°</div>
                                 </div>
                             </div>
                             <div class="setting">
                                 <span>Time</span>
 
                                 <div class="timetypewrap">
-                                    <div class="timetype timetype-12">12 h</div>
-                                    <div class="timetype timetype-24">24 h</div>
+                                    <div class="timetype timetype-12 12">12 h</div>
+                                    <div class="timetype timetype-24 24">24 h</div>
                                 </div>
                             </div>
                             <div class="setting">
@@ -194,7 +196,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
-<script src="JS/weather.js"></script>
-<script src="JS/clientproperties.js"></script>
+<script src="JS/global/globalweather.js"></script>
+<script src="JS/global/globalclientproperties.js"></script>
+
+<script src="JS/index/indexweather.js"></script>
+<script src="JS/index/index.js"></script>
 
 </html>

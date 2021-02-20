@@ -130,69 +130,21 @@ function fillerInfo ()  {
 }
 
 
-function pageinit (client, citynum) {
-    var clientproperties = JSON.parse(client)
+// CHANGE PAGE
 
-    // CLIENT PROPERTIES
-    document.querySelector('.clientcity').innerHTML = clientproperties.Properties.City[citynum]
-    document.querySelector('.clientdate').innerHTML = clientproperties.Properties.Date
-    document.querySelector('.clienthour').innerHTML = clientproperties.Properties.Time[12] + ' ' +  clientproperties.Properties.Time.AP 
-    document.querySelector('.clientday').innerHTML = clientproperties.Properties.Weekday
-
-    // ANIMATIONS
-    var pageloader = document.querySelector('.pageloader')
-    pageloader.style.opacity = '0'; setTimeout(function() {pageloader.style.display = 'none'}, 700)
-
-    var topdetails = document.querySelector('.topdetails')
-    topdetails.style.animation = 'topdetailsdrop 0.3s ease 0.5s 1 forwards'
-
-    var sidebar = document.querySelector('.hourdisplay')
-    sidebar.style.animation = 'hourdisplayslide 0.4s ease 0.7s 1 forwards'
-
-    var maincontent = document.querySelector('.propertytempsplit')
-    maincontent.style.animation = 'propertytempsplitsplash 0.4s ease 1.3s 1 forwards'
-
-    var maincontent = document.querySelector('.bottomcontent')
-    maincontent.style.animation = 'bottomcontentslide 0.4s ease 1s 1 forwards'
-
-        // CLICK ANIMS:
-        document.getElementsByClassName('clientcity')[0].addEventListener('click', cityoptions)
-
-        document.getElementsByClassName('addcitylocation')[0].addEventListener('click', openmap)
-        document.getElementsByClassName('addcity')[0].addEventListener('click', opensearch)
-
-        document.getElementsByClassName('clientproperties')[0].addEventListener('click', showdesc)
-
-        document.getElementById('setclick').addEventListener('click', showSettings)
-    callAll()
+function changePage(page) {
+    window.location.href = page + '.html'
 }
 
-function displayhours (twelve, ampm) {
-    for (hournum = 0; hournum < 6; hournum++) {
-        var hour12 = moment().add(hournum, 'hours').format('h')
-        var hour24 = moment().add(hournum, 'hours').format('H')
-        var amorpm = moment().add(hournum, 'hours').format('A')
 
-        if (twelve == 'true') {
-            document.getElementsByClassName('hour')[hournum].innerHTML  = hour12 + ':00'
-        } else {
-            document.getElementsByClassName('hour')[hournum].innerHTML  = hour24 + ':00'
-        }
 
-        if (ampm == 'true') {
-            document.getElementsByClassName('hour')[hournum].innerHTML  =  document.getElementsByClassName('hour')[hournum].innerHTML + ' ' + amorpm
-        }
-    }
-}
-displayhours('true', 'true');
 
-function displayweekdays () {
-    for (daynum = 0; daynum < 7; daynum++) {
-        var weekday = moment().add(daynum, 'days').format('ddd')
-        document.getElementsByClassName('weekday')[daynum].innerHTML  = weekday
-    }
-}
-displayweekdays()
+
+// UI STUFF
+
+
+
+
 
 function cityoptions () {
     if (document.getElementsByClassName('cityoptions')[0].style.animation == '0.2s ease 0s 1 normal forwards running cityoptionspop') {
@@ -247,18 +199,19 @@ function hideSettings() {
 }
 
 // MAPBOX 
+/*
 var theme;
 var themeInd = window.getComputedStyle(document.querySelector('.largetempdisplay')).getPropertyValue('color')
 if (themeInd == 'rgb(0, 0, 0)') {
     theme = 'mapbox://styles/itsisaac19/cklbsrlme1biv17nwa5di76r4'
 } else {
     theme = 'mapbox://styles/itsisaac19/cklb2lft92h3317nxe8jvfdt1'
-}
+}*/
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXRzaXNhYWMxOSIsImEiOiJja2xiMmpraTEwZDIyMndvMzE5cGd1eTlyIn0.V2gQnHEAqZEugJKp82pUaQ';
 var map = new mapboxgl.Map({
 container: 'map',
-style: theme,
+style: 'mapbox://styles/itsisaac19/cklb2lft92h3317nxe8jvfdt1',
 center: [-93.118,45.08],
 zoom: 9 // starting zoom
 });
@@ -431,6 +384,50 @@ document.querySelector('.searchcities').addEventListener('keydown', function() {
 
 
 
+// CLIENT UNIT/PREFERENCES SETTINGS
 
 
+// UNITS
+document.querySelector('.unit-metric').addEventListener('click', changeClientUnits)
+document.querySelector('.unit-imperial').addEventListener('click', changeClientUnits)
 
+function changeClientUnits() {
+    this.parentElement.children[0].style.backgroundColor = '#f8f7f0';
+    this.parentElement.children[1].style.backgroundColor = '#f8f7f0';
+
+    this.style.backgroundColor = '#e6e4d4';
+
+    localStorage.setItem('clientunits', this.classList[2])
+    console.log(localStorage.getItem('clientunits'))
+
+    location.reload()
+}
+
+if(localStorage.getItem('clientunits')) {
+    document.getElementsByClassName(localStorage.getItem('clientunits'))[0].style.backgroundColor ='#e6e4d4';
+} else {
+    localStorage.setItem('clientunits', 'imperial')
+}
+
+
+// TIME
+document.querySelector('.timetype-12').addEventListener('click', changeClientTimeMode)
+document.querySelector('.timetype-24').addEventListener('click', changeClientTimeMode)
+
+function changeClientTimeMode() {
+    this.parentElement.children[0].style.backgroundColor = '#f8f7f0';
+    this.parentElement.children[1].style.backgroundColor = '#f8f7f0';
+
+    this.style.backgroundColor = '#e6e4d4';
+
+    localStorage.setItem('clientmodetime', this.classList[2])
+    console.log(localStorage.getItem('clientmodetime'))
+
+    location.reload()
+}
+
+if(localStorage.getItem('clientmodetime')) {
+    document.getElementsByClassName(localStorage.getItem('clientmodetime'))[0].style.backgroundColor ='#e6e4d4';
+} else {
+    localStorage.setItem('clientmodetime', '12')
+}
