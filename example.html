@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smpl Weather</title>
+
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/hourly.css">
+
+    <link rel="icon" href="CSS/icons/Smplicon.ico">
+
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='CSS/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <div class="coverpage">
+        <div class="innerwrap">
+            <div class="topdetails global">
+                <div id="clientcity" class="clientcity">Moscow</div>
+                <!--CITY OPTIONS DROPDOWN-->
+                    <div class="cityoptions">
+                        <div class="addcity option">
+                            <span>Add City</span>
+                            <img src="CSS/icons/ic_add_24px.svg" alt="">
+                        </div>
+                        <div class="changecity option"> 
+                            <span>Change City</span> 
+                            <!--<img src="CSS/icons/icons8-synchronize.svg" alt="">-->
+                        </div>
+                        <div class="addcitylocation option"> 
+                            <span>Add Current <br> Location</span>  
+                            <img src="CSS/icons/ic_place_24px.svg" alt="">
+                        </div>
+
+                        <div class="confirmoption">
+                            <div id="denyoption">
+                                <img src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/>
+                            </div>
+                            <div id="yesoption">
+                                <img src="https://img.icons8.com/ios-glyphs/60/000000/checkmark--v1.png"/>
+                            </div>
+                        </div>
+
+                        <div id='map'></div>
+                        <div class="loaddots">
+                            <div class="dot-typing"></div>
+                        </div>
+                        <div class="error-map"></div>
+                    </div>
+
+                    <div class="searchcities">
+                        <input id="search-city" type="text" placeholder="Search for a city">
+                    </div>
+                    <div class="listofcities">
+                    </div>
+
+
+
+                <div class="clientdate">18.01.2021</div>
+                <div class="dayview">For a week</div>
+            </div>
+
+
+            <div class="maincontent">
+
+            </div>
+            <div class="bottomcontent">
+
+                <div class="user-settings">
+                    <div class="settings">
+                        <div id="setclick">settings</div>
+                        <div class="settingsoptions">
+                            <div class="setting">
+                                <span>Units</span>
+
+                                <div class="unitswrap">
+                                    <div class="unit unit-imperial">F°</div>
+                                    <div class="unit unit-metric">C°</div>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <span>Time</span>
+
+                                <div class="timetypewrap">
+                                    <div class="timetype timetype-12">12 h</div>
+                                    <div class="timetype timetype-24">24 h</div>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <span>Theme</span>
+
+                                <div class="themewrap">
+                                    <div class="themetype themetype-light">L</div>
+                                    <div class="themetype themetype-dark">D</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pageloader">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="splitpage"></div>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+<script src="JS/global/globalweather.js"></script>
+<script src="JS/global/globalclientproperties.js"></script>
+
+<script src="JS/hourly/hourlyweather.js"></script>
+<script src="JS/hourly/hourly.js"></script>
+
+</html>
