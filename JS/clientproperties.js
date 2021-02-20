@@ -141,7 +141,7 @@ function pageinit (client, citynum) {
 
     // ANIMATIONS
     var pageloader = document.querySelector('.pageloader')
-    pageloader.style.opacity = '0'
+    pageloader.style.opacity = '0'; setTimeout(function() {pageloader.style.display = 'none'}, 700)
 
     var topdetails = document.querySelector('.topdetails')
     topdetails.style.animation = 'topdetailsdrop 0.3s ease 0.5s 1 forwards'
@@ -162,6 +162,8 @@ function pageinit (client, citynum) {
         document.getElementsByClassName('addcity')[0].addEventListener('click', opensearch)
 
         document.getElementsByClassName('clientproperties')[0].addEventListener('click', showdesc)
+
+        document.getElementById('setclick').addEventListener('click', showSettings)
     callAll()
 }
 
@@ -207,13 +209,6 @@ function cityoptions () {
         document.querySelector('.searchcities').style.animation = null
 
         document.getElementById('map').style.animation = null
-        document.querySelector('.loaddots').style.top = null
-        document.querySelector('.loaddots').innerHTML = null
-        document.querySelector('.loaddots').style.left = null
-        document.querySelector('.loaddots').style.width =  null
-        document.querySelector('.loaddots').style.textAlign = null
-        document.querySelector('.loaddots').style.padding =null
-        document.querySelector('.loaddots').style.background = null
 
         setTimeout(function() {
             document.querySelector('.listofcities').style.display = 'none'
@@ -223,7 +218,33 @@ function cityoptions () {
     }
 }
 
+var showsettingstrueorfalsevarcustomwow = false
+function showSettings () {
+    if (showsettingstrueorfalsevarcustomwow == false) {
+        var options = document.querySelector('.settingsoptions')
+        options.style.display = 'grid'
+        setTimeout(function() {
+            options.style.animation = 'showsettingsoptions 0.3s ease 0s forwards'
+        })
 
+        showsettingstrueorfalsevarcustomwow = true
+    } else {
+        hideSettings()
+    }
+
+}
+function hideSettings() {
+    document.getElementById('setclick').removeEventListener('click', showSettings)
+
+    var options = document.querySelector('.settingsoptions')
+    options.style.animation = 'hidesettingsoptions 0.2s ease 0s forwards'
+    setTimeout(function() {
+        options.style.display = 'none'
+        document.getElementById('setclick').addEventListener('click', showSettings)
+    }, 200)
+
+    showsettingstrueorfalsevarcustomwow = false
+}
 
 // MAPBOX 
 var theme;
@@ -247,22 +268,15 @@ map.addControl(new mapboxgl.NavigationControl());
 
 function openmap () {
     document.getElementById('map').style.animation = null
+    document.querySelector('#map').style.display = 'block'
 
-    document.querySelector('.loaddots').style.top = null
-    document.querySelector('.loaddots').style.left = null
-    document.querySelector('.loaddots').style.width =  null
-    document.querySelector('.loaddots').style.textAlign = null
-    document.querySelector('.loaddots').style.padding =null
-    document.querySelector('.loaddots').style.background = null
-
-    document.querySelector('.loaddots').style.display = 'block'
     setTimeout(function() {
+        document.querySelector('.loaddots').style.display = 'block'
         document.querySelector('#map').style.animation = 'mappop 0.3s ease 0s 1 forwards'
     }, 100)
     document.getElementsByClassName('addcitylocation')[0].removeEventListener('click', openmap)
 
     if (navigator.geolocation) {
-
         navigator.geolocation.getCurrentPosition(createMarker, showError);
     } else {
         alert("Geolocation is not supported by this browser.")
@@ -273,27 +287,19 @@ function showError(error) {
         document.getElementsByClassName('addcitylocation')[0].addEventListener('click', openmap)
     } , 100)
 
-
-    document.querySelector('.loaddots').style.top = '65px'
-    document.querySelector('.loaddots').style.left = '167%'
-    document.querySelector('.loaddots').style.width = '159px'
-    document.querySelector('.loaddots').style.textAlign = 'Center'
-    document.querySelector('.loaddots').style.padding = '20px 20px 20px 20px'
-    document.querySelector('.loaddots').style.background = 'white'
-    document.querySelector('.loaddots').style.borderRadius = '14px'
-    document.querySelector('.loaddots').style.fontSize = '15px'
     switch(error.code) {
         case error.PERMISSION_DENIED:
-          document.querySelector('.loaddots').innerHTML = "Error: User blocked location. Click add city to search for your city."
+            console.log("Error: User blocked location. Click add city to search for your city.")
+          document.querySelector('.error-map').innerHTML = "Error: User blocked location. Click add city to search for your city, or change your permissions to allow location services"
           break;
         case error.POSITION_UNAVAILABLE:
-            document.querySelector('.loaddots').innerHTML =  "Location information is unavailable."
+            document.querySelector('.error-map').innerHTML =  "Location information is unavailable."
           break;
         case error.TIMEOUT:
-            document.querySelector('.loaddots').innerHTML =  "The request to get user location timed out."
+            document.querySelector('.error-map').innerHTML =  "The request to get user location timed out."
           break;
         case error.UNKNOWN_ERROR:
-            document.querySelector('.loaddots').innerHTML =  "An unknown error occurred."
+            document.querySelector('.error-map').innerHTML =  "An unknown error occurred."
           break;
       }
 }
