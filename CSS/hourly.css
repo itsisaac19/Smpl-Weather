@@ -148,6 +148,8 @@
     grid-template-rows: repeat(12, 70px);
 }
 .hoursection {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
     display: grid; place-items: center;
     grid-template-columns: 1.3fr 2fr 1fr 1fr 1fr 1fr 1.3fr;
     grid-template-rows: 1fr;
@@ -159,31 +161,31 @@
 }
 .hourtime {
     margin: auto auto auto 30px;
-    font: normal normal 300 20px SF Pro;
+    font: normal normal 300 20px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .hourweatherdesc {
     margin: auto auto auto 40px;
-    font: normal normal 400 15px SF Pro;
+    font: normal normal 400 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .hourtemp {
     color: #000000;
-    font: normal normal bold 15px SF Pro;
+    font: normal normal 600 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .hourfeelstemp {
     color: #333333;
-    font: normal normal bold 15px SF Pro;
+    font: normal normal 600 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .hourwind {
     color: #8AA7A6;
-    font: normal normal bold 15px SF Pro;
+    font: normal normal 600 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .hourprecip {
     color: #5B727C;
-    font: normal normal bold 15px SF Pro;
+    font: normal normal 600 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .hourhumidity {
     color: #ACA27B;
-    font: normal normal bold 15px SF Pro;
+    font: normal normal 600 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 
