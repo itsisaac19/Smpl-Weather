@@ -92,10 +92,13 @@ function masterWeekly () {
         document.querySelector('.weekrangetext').style.top = '0'
         document.querySelector('.weekrangetext').style.opacity = '1'
 
+        document.getElementsByClassName('daycardswrap')[0].scrollLeft = '1800'
+
         setTimeout(function() {
             document.querySelector('.daycardswrap').style.top = '0'
             document.querySelector('.daycardswrap').style.opacity = '1'
-        }, 100)
+            scrollDays()
+        }, 500)
 
 
         setTimeout(charts, 200)
@@ -203,7 +206,6 @@ function charts () {
 
     // Finally, the animation to bring 'em in!
     setTimeout(function() {
-        document.querySelector('.graphswrap').style.top = '0'
         document.querySelector('.graphswrap').style.opacity = '1'
     }, 200)
 
@@ -226,4 +228,10 @@ function adaptGraphs () {
             document.getElementsByClassName('graphdisplaywrapper')[i].style.width = wrap
         }
     }
+}
+
+function scrollDays () {
+    document.getElementsByClassName('daycardswrap')[0].style.scrollBehavior = 'smooth'
+    document.getElementsByClassName('daycardswrap')[0].scrollLeft = '0'
+    console.log(document.getElementsByClassName('daycardswrap')[0].scrollLeft)
 }

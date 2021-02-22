@@ -7,6 +7,8 @@ if (localStorage.getItem('clientunits')) {
     localStorage.setItem('clientunits', 'imperial')
 }
 
+console.log(lat, lon)
+
 function masterHourly () {
     fetch('https://data.climacell.co/v4/timelines?location='+ lat +'%2C'+ lon +'&fields=temperature&fields=temperatureApparent&fields=humidity&fields=windSpeed&fields=windDirection&fields=precipitationProbability&fields=weatherCode&timesteps=1h&units='+ localStorage.getItem('clientunits') +'&apikey=hb7YkfuADVORMAV7wlh6sV7pmmVvrSvv')
     .then(response => response.json())

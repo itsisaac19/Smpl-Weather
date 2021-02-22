@@ -46,6 +46,7 @@
     grid-template-rows: 1fr;
     gap: 30px;
 }
+/*
 .daycardswrap::-webkit-scrollbar-track {
     background: #dddddd;
     border-radius: 10px;
@@ -57,7 +58,7 @@
     background: rgb(241, 241, 236);
     border-radius: 10px;
     border: 1px solid rgb(221, 219, 219);
-}
+}*/
 .daycard {
     min-width: 270px;
     width: auto;
@@ -135,7 +136,7 @@
 
 /* GRAPHS */
 .graphswrap {
-    position: relative; top: 10px; opacity: 0; transition: 0.2s ease;
+    position: relative; top: 0px; opacity: 0; transition: 0.2s ease;
 
     margin-top: 40px;
 

@@ -100,6 +100,7 @@ daycards.onmouseleave = function () {
 
 function weekRangeDisplay () {
     var month = moment().format('MMMM')
+    var monthAb = moment().format('MMM')
 
     var rangeStart = moment().format('d')
     var rangeEnd;
@@ -109,10 +110,21 @@ function weekRangeDisplay () {
         rangeStart = moment().format('D')
         rangeEnd = moment().add('6', 'days').format('D')
     } else {
-        calcToEnd = rangeStart
-        rangeStart = moment().subtract(rangeStart, 'days').format('D');
+        calcToEnd = (6 - rangeStart)
         rangeEnd = moment().add(calcToEnd, 'days').format('D')
+        rangeStart = moment().subtract(rangeStart, 'days').format('D');
     }
     document.querySelector('.weekrangetext').innerHTML = month + ' ' + rangeStart + ' - ' + rangeEnd
+
+    // AFTER STYLE DISPLAY
+    var graphwrap = document.getElementsByClassName('titlegraph')
+    for (i = 0; i < 3; i++) {
+        var textAfter = document.createElement('span'); textAfter.innerHTML = ' &nbsp' + ' ' + monthAb + ' ' + rangeStart + ' - ' + rangeEnd;
+        textAfter.style.color = '#A3A3A3'
+        textAfter.style.fontWeight = '400'
+        graphwrap[i].appendChild(textAfter)
+    }
+
 }
 weekRangeDisplay()
+
