@@ -114,8 +114,57 @@ function charts () {
     var temp7  = document.getElementsByClassName('hourtemp')[6].innerHTML.substr(0, document.getElementsByClassName('hourtemp')[6].innerHTML.length - 1)
     var temp8  = document.getElementsByClassName('hourtemp')[7].innerHTML.substr(0, document.getElementsByClassName('hourtemp')[7].innerHTML.length - 1)
 
-    var ctxtemp=document.getElementById('tempgraphdisplay').getContext('2d');var chart=new Chart(ctxtemp,{type:'line',data:{labels:['','','','','','',''],datasets:[{fill:false,backgroundColor:'#5C5C5C',borderColor:'#959595',data:[temp1,temp2,temp3,temp4,temp5,temp6,temp7,temp8]}]},options:{layout:{padding:{left:0,right:40,top:0,bottom:0}},elements:{point:{radius:5},},responsive:true,maintainAspectRatio:false,legend:{display:false,},scales:{xAxes:[{gridLines:{display:false}}],yAxes:[{gridLines:{display:false},ticks:{display:true,fontColor:'rgb(255,255,255,0.001)'}}],}}});
-    
+    var ctxtemp = document.getElementById('tempgraphdisplay').getContext('2d');
+    var chart = new Chart(ctxtemp, {
+        type: 'line',
+        data: {
+            labels: ['', '', '', '', '', '', ''],
+            datasets: [{
+                fill: false,
+                backgroundColor: '#5C5C5C',
+                borderColor: '#959595',
+                data: [temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8]
+            }]
+        },
+        options: {
+            layout: {
+                padding: {
+                    left: 20,
+                    right: 40,
+                    top: 0,
+                    bottom: 0
+                }
+            },
+            elements: {
+                point: {
+                    radius: 5
+                },
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                display: false,
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: true
+                    },
+                    ticks: {
+                        display: true,
+                        stepSize : 2,
+                        fontColor: 'rgb(0, 0, 0)'
+                    }
+                }],
+            }
+        }
+    });
+        
     // PRECIP
     var p1  = document.getElementsByClassName('hourprecip')[0].innerHTML.substr(0, document.getElementsByClassName('hourprecip')[0].innerHTML.length - 1)
     var p2  = document.getElementsByClassName('hourprecip')[1].innerHTML.substr(0, document.getElementsByClassName('hourprecip')[1].innerHTML.length - 1)
@@ -126,7 +175,7 @@ function charts () {
     var p7  = document.getElementsByClassName('hourprecip')[6].innerHTML.substr(0, document.getElementsByClassName('hourprecip')[6].innerHTML.length - 1)
     var p8  = document.getElementsByClassName('hourprecip')[7].innerHTML.substr(0, document.getElementsByClassName('hourprecip')[7].innerHTML.length - 1)
 
-    var ctxprecip=document.getElementById('precipgraphdisplay').getContext('2d');var chart=new Chart(ctxprecip,{type:'line',data:{labels:['','','','','','',''],datasets:[{fill:false,backgroundColor:'#5C5C5C',borderColor:'#5B727C',data:[p1,p2,p3,p4,p5,p6,p7,p8]}]},options:{layout:{padding:{left:0,right:40,top:0,bottom:0}},elements:{point:{radius:5},},responsive:true,maintainAspectRatio:false,legend:{display:false,},scales:{xAxes:[{gridLines:{display:false}}],yAxes:[{gridLines:{display:false},ticks:{display:true,fontColor:'rgb(255,255,255,0.001)'}}],}}});
+    var ctxprecip=document.getElementById('precipgraphdisplay').getContext('2d');var chart=new Chart(ctxprecip,{type:'line',data:{labels:['','','','','','',''],datasets:[{fill:false,backgroundColor:'#5C5C5C',borderColor:'#5B727C',data:[p1,p2,p3,p4,p5,p6,p7,p8]}]},options:{layout:{padding:{left:20,right:40,top:0,bottom:0}},elements:{point:{radius:5},},responsive:true,maintainAspectRatio:false,legend:{display:false,},scales:{xAxes:[{gridLines:{display:false}}],yAxes:[{gridLines:{display:true},ticks:{display:true,stepSize : 20,fontColor:'rgb(0, 0, 0)'}}],}}});
 
     // WIND
     var w1  = document.getElementsByClassName('hourwind')[0].innerHTML.substr(0, document.getElementsByClassName('hourwind')[0].innerHTML.length - 3)
@@ -138,7 +187,7 @@ function charts () {
     var w7  = document.getElementsByClassName('hourwind')[6].innerHTML.substr(0, document.getElementsByClassName('hourwind')[6].innerHTML.length - 3)
     var w8  = document.getElementsByClassName('hourwind')[7].innerHTML.substr(0, document.getElementsByClassName('hourwind')[7].innerHTML.length - 3)
 
-    var ctxwind=document.getElementById('windgraphdisplay').getContext('2d');var chart=new Chart(ctxwind,{type:'line',data:{labels:['','','','','','',''],datasets:[{fill:false,backgroundColor:'#5C5C5C',borderColor:'#A9BEBB',data:[w1,w2,w3,w4,w5,w6,w7,w8]}]},options:{layout:{padding:{left:0,right:40,top:0,bottom:0}},elements:{point:{radius:5},},responsive:true,maintainAspectRatio:false,legend:{display:false,},scales:{xAxes:[{gridLines:{display:false}}],yAxes:[{gridLines:{display:false},ticks:{display:true,fontColor:'rgb(255,255,255,0.001)'}}],}}});
+    var ctxwind=document.getElementById('windgraphdisplay').getContext('2d');var chart=new Chart(ctxwind,{type:'line',data:{labels:['','','','','','',''],datasets:[{fill:false,backgroundColor:'#5C5C5C',borderColor:'#A9BEBB',data:[w1,w2,w3,w4,w5,w6,w7,w8]}]},options:{layout:{padding:{left:20,right:40,top:0,bottom:0}},elements:{point:{radius:5},},responsive:true,maintainAspectRatio:false,legend:{display:false,},scales:{xAxes:[{gridLines:{display:false}}],yAxes:[{gridLines:{display:true},ticks:{display:true,stepSize : 4,fontColor:'rgb(0, 0, 0)'}}],}}});
 
     // Finally, the animation to bring 'em in!
     document.querySelector('.graphswrap').style.top = '0'

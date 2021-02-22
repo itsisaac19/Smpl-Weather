@@ -5,6 +5,7 @@ function pageinit (client, citynum) {
     
     document.querySelector('.clientcity').innerHTML = clientproperties.Properties.City[citynum]
     document.querySelector('.clientdate').innerHTML = clientproperties.Properties.Date
+    document.querySelector('.weekdaytext').innerHTML = clientproperties.Properties.Weekday
 
     /*
     document.querySelector('.clienthour').innerHTML = clientproperties.Properties.Time[12] + ' ' +  clientproperties.Properties.Time.AP */
@@ -35,6 +36,9 @@ function pageinit (client, citynum) {
         document.getElementById('setclick').addEventListener('click', showSettings)
         document.querySelector('.dayview').addEventListener('click', function() {
             changePage('index');
+        })
+        document.querySelector('.weekview').addEventListener('click', function() {
+            changePage('weekly');
         })
     callAll()
 }

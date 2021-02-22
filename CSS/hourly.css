@@ -1,6 +1,18 @@
 .coverpage {
     min-height: 1430px !important;
 }
+.coverpage, body {
+    background: #EDEBE4 !important;
+}
+.weekview {
+    cursor: pointer;
+    grid-area: month;
+    margin: auto 10% auto auto;
+}
+.dayview {
+    grid-area: month;
+    margin: auto 30% auto auto !important;
+}
 
 .maincontent {
     display: grid;
@@ -51,6 +63,11 @@
     grid-template-rows: 60px 1fr;
 }
 .titlegraph {
+    margin: auto auto auto 25px;
+    font-family: system-ui;
+    font-weight: 500;
+    font-size: 20px;
+    color: #333333;
     margin: auto auto auto 25px;
 }
 .tempgraphdata, .precipgraphdata, .windgraphdata {

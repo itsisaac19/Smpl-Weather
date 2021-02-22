@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smpl Weather</title>
 
-    <link rel="stylesheet" href="CSS/hourly.css">
+    <link rel="stylesheet" href="CSS/weekly.css">
     <link rel="stylesheet" href="CSS/global.css">
 
     <link rel="icon" href="CSS/icons/Smplicon.ico">
@@ -62,61 +62,23 @@
 
                 <div class="clientdate">18.01.2021</div>
                 <div class="dayview">back to home</div>
-                <div class="weekview">For a week</div>
             </div>
 
 
             <div class="maincontent">
-                <div class="daydisplay">
-                    <div class="weekdaywrap">
-                        <div class="weekdaytext">Saturday</div>
-                        <div class="weekdaychange"></div>
-                    </div>
+                <div class="weekdaysouterwrap">
+                    <div class="weekrangetext">February 21 - 27</div>
+                    <div class="weekrangechange"></div>
 
-                    <div class="hourstable">
-                        <div class="toplabels">
-                            <div>time</div>
-                            <div>weather</div>
-                            <div>temp</div>
-                            <div>feels</div>
-                            <div>wind</div>
-                            <div>precipitation</div>
-                            <div>humidity</div>
-                        </div>
+                    <div class="daycardswrap">
+                        <div class="daycardscontent">
 
-                        <div class="hourscontent">
-                            <!--
-                            <div class="hoursection">
-                                <div class="hourtime">6:00 am</div>
-                                <div class="hourweatherdesc">Clear</div>
-                                <div class="hourtemp">12°</div>
-                                <div class="hourfeelstemp">9°</div>
-                                <div class="hourwind">3mph</div>
-                                <div class="hourprecip">4%</div>
-                                <div class="hourhumidity">32%</div>
-                            </div>
-
-                            <div class="hoursection">
-                                <div class="hourtime">7:00 am</div>
-                                <div class="hourweatherdesc">Cloudy</div>
-                                <div class="hourtemp">14°</div>
-                                <div class="hourfeelstemp">10°</div>
-                                <div class="hourwind">4mph</div>
-                                <div class="hourprecip">4%</div>
-                                <div class="hourhumidity">55%</div>
-                            </div>
-                            -->
                         </div>
                     </div>
-
-                </div>
-
-                <div class="graphdisplay">
-                    <div class="graphtext">Graphs</div>
 
                     <div class="graphswrap">
                         <div class="tempgraph">
-                            <div class="titlegraph">temperature</div>
+                            <div class="titlegraph">Temperature</div>
                             <div class="tempgraphdata">
                                 <div class="graphdisplaywrapper">
                                     <canvas id="tempgraphdisplay"></canvas>
@@ -132,12 +94,11 @@
                                     <div class="timelabelgraph"></div>
                                     <div class="timelabelgraph"></div>
                                     <div class="timelabelgraph"></div>
-                                    <div class="timelabelgraph"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="precipgraph">
-                            <div class="titlegraph">precipitation</div>
+                            <div class="titlegraph">Precipitation</div>
                             <div class="precipgraphdata">
                                 <div class="graphdisplaywrapper">
                                     <canvas id="precipgraphdisplay"></canvas>
@@ -152,20 +113,18 @@
                                     <div class="timelabelgraph"></div>
                                     <div class="timelabelgraph"></div>
                                     <div class="timelabelgraph"></div>
-                                    <div class="timelabelgraph"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="windgraph">
-                            <div class="titlegraph">wind</div>
-                            <div class="windgraphdata">
+                        <div class="humiditygraph">
+                            <div class="titlegraph">Humidity</div>
+                            <div class="humiditygraphdata">
                                 <div class="graphdisplaywrapper">
-                                    <canvas id="windgraphdisplay"></canvas>
+                                    <canvas id="humiditygraphdisplay"></canvas>
                                 </div>
 
                                 <div></div>
                                 <div class="labelsgraph">
-                                    <div class="timelabelgraph"></div>
                                     <div class="timelabelgraph"></div>
                                     <div class="timelabelgraph"></div>
                                     <div class="timelabelgraph"></div>
@@ -178,7 +137,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="bottomcontent">
 
@@ -228,6 +186,7 @@
     </div>
 </body>
 
+<script src="https://unpkg.com/scrollbooster@2/dist/scrollbooster.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
@@ -235,7 +194,7 @@
 <script src="JS/global/globalweather.js"></script>
 <script src="JS/global/globalclientproperties.js"></script>
 
-<script src="JS/hourly/hourlyweather.js"></script>
-<script src="JS/hourly/hourly.js"></script>
+<script src="JS/weekly/weeklyweather.js"></script>
+<script src="JS/weekly/weekly.js"></script>
 
 </html>
